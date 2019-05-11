@@ -78,9 +78,12 @@ public class HelperService extends AccessibilityService {
             for (AccessibilityNodeInfo parent : list) {
                 List<AccessibilityNodeInfo> rpStatusNode = parent.findAccessibilityNodeInfosByText("已领取");
                 List<AccessibilityNodeInfo> rpStatusNode2 = parent.findAccessibilityNodeInfosByText("已被领完");
-                if ((rpStatusNode == null || rpStatusNode.size() == 0) && (rpStatusNode2 == null || rpStatusNode2.size() == 0)) {
+                List<AccessibilityNodeInfo> rpStatusNode3 = parent.findAccessibilityNodeInfosByText("微信红包");
+                if ((rpStatusNode == null || rpStatusNode.size() == 0)
+                        && (rpStatusNode2 == null || rpStatusNode2.size() == 0)
+                        && (rpStatusNode3 != null && rpStatusNode3.size() != 0)) {
                     parent.performAction(AccessibilityNodeInfo.ACTION_CLICK);
-                    break; // 只领最新的一个红包
+                    break;
                 }
             }
         }
