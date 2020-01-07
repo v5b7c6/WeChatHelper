@@ -1,0 +1,2 @@
+# WeChatHelper
+基于AccessibilityService实现微信自动抢红包
